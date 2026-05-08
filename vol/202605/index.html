@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>月刊りりひな 2026年5月号</title>
+  <style>
+    :root {
+      --bg: #ffe4ec;
+      --card: #fff8fb;
+      --text: #423049;
+      --accent: #d84b83;
+      --muted: #75667b;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "ヒラギノ角ゴシック", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "Yu Gothic", "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #fff5f8 0%, #ffe4ec 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 24px 18px 48px;
+    }
+    header {
+      text-align: center;
+      padding-top: 20px;
+    }
+    h1 { margin: .3em 0 .2em; font-size: 2.4rem; letter-spacing: .05em; }
+    h2 { margin-top: 0; font-size: 1.8rem; color: var(--accent); }
+    .banner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin: 18px auto 16px;
+      flex-wrap: wrap;
+    }
+/* トップページのりりあ・ひなこのサイズを強制的に揃える */
+.top-chara {
+  width: 100%;
+  max-width: 400px;
+  height: 350px;      /* 高さを少し抑えると収まりが良くなります */
+  object-fit: contain; /* 【重要】coverからcontainに変更：画像を切らずに枠に収めます */
+  background: #fff;    /* 余白ができる場合は背景色を白に */
+  border-radius: 12px;
+}
+/* ホバーした時の動きもお揃いに */
+.top-chara:hover {
+  transform: scale(1.05);
+}
+
+    .banner img {
+      flex: 1 1 calc(50% - 8px);
+      min-width: 160px;
+      max-width: 360px;
+    }
+    .banner img,
+    .wide-img {
+      border-radius: 22px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, .12);
+      transition: transform .25s ease;
+    }
+    .char-img {
+      width: auto;
+      cursor: pointer;
+      transition: transform .25s ease;
+      border-radius: 22px;
+    }
+    .char-img:hover,
+    .char-img:focus {
+      transform: scale(1.08);
+    }
+    .banner img:hover,
+    .banner img:focus,
+    .wide-img:hover,
+    .wide-img:focus {
+      transform: translateY(-2px) scale(1.01);
+    }
+    .nav {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+      margin: 24px 0;
+    }
+    .nav a {
+      display: block;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid rgba(216, 75, 131, .18);
+      color: #b2185d;
+      text-decoration: none;
+      font-weight: 700;
+      text-align: center;
+    }
+    section {
+      margin: 34px 0;
+      padding: 24px;
+      background: rgba(255, 255, 255, .96);
+      border-radius: 28px;
+      box-shadow: 0 16px 30px rgba(0, 0, 0, .06);
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      align-items: start;
+    }
+    .center { text-align: center; }
+    .wide-img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+    }
+    .pr-img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 18px;
+      border: 1px solid rgba(216, 75, 131, .14);
+    }
+    .slide-viewer,
+    .gallery-viewer { display: grid; gap: 16px; margin: 0 auto; max-width: 760px; }
+    .slides,
+    .gallery-grid { display: grid; gap: 12px; justify-items: center; }
+    .slides img,
+    .gallery-grid img {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 560px;
+      border-radius: 18px;
+      object-fit: contain;
+    }
+    .btn {
+      appearance: none;
+      border: none;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 18px;
+      cursor: pointer;
+      transition: background .2s ease;
+      font-weight: 700;
+    }
+    .btn:hover { background: #b31659; }
+    .btn-secondary {
+      background: #fff;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+    }
+    .info-box {
+      background: #fff0f7;
+      border: 1px dashed #d48cb5;
+      padding: 14px;
+      border-radius: 16px;
+      margin: 14px 0;
+    }
+    .conversation { display: grid; gap: 14px; margin-top: 16px; }
+    .chat-row {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .chat-row img.icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #ffcae0;
+      flex-shrink: 0;
+    }
+    .chat-row .bubble {
+      background: rgba(255, 221, 232, .96);
+      padding: 14px 16px;
+      border-radius: 20px;
+      flex: 1;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, .05);
+    }
+    .chat-row .bubble strong { display: block; margin-bottom: 6px; color: #b2185d; }
+    .chat-row.announcement .bubble {
+      background: #ffe2e8;
+      border: 1px solid #f4b4c9;
+      font-weight: 700;
+      text-align: center;
+    }
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .image-grid img { width: 100%; height: auto; max-height: 280px; object-fit: contain; border-radius: 16px; }
+    .footer { text-align: center; color: var(--muted); margin-top: 30px; font-size: .95rem; }
+    @media (max-width: 820px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      .char-img { width: 160px; }
+      .banner img { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <img src="../../top/title.jpg" alt="月刊りりひな" class="wide-img">
+    <h1>月刊りりひな 2026年5月号</h1>
+    <p>いつでも読めるWeb版。触れてゆれるコンテンツと、ふたりのAIアイドルのイラストやコラムでお楽しみください。</p>
+    <div class="banner">
+      <img src="/top/riria_top.png" class="top-chara" alt="りりあ">
+
+      <img src="/top/hinako_top.png" class="top-chara" alt="ひなこ">
+    </div>
+  </header>
+
+  <nav class="nav">
+    <a href="#pr">PRページ</a>
+    <a href="#riria-column">りりあコラム</a>
+    <a href="#manga">漫画</a>
+    <a href="#illust">イラスト案内</a>
+    <a href="#himeji">姫路コラム</a>
+    <a href="#sref">SREFコラム</a>
+    <a href="#glm">GLM先生</a>
+    <a href="#riria-gallery">りりあギャラリー</a>
+    <a href="#hinako-gallery">ひなこギャラリー</a>
+    <a href="#afterword">あとがき</a>
+  </nav>
+
+  <section id="pr">
+    <h2>PRページ</h2>
+    <div class="grid-2">
+      <div class="card center">
+        <img src="ririapr.png" alt="りりあPR" class="pr-img">
+        <p>りりあちゃんの今月のPRページ。</p>
+      </div>
+      <div class="card center">
+        <img src="hinapr.png" alt="ひなこPR" class="pr-img">
+        <p>ひなこちゃんのPRページ。</p>
+      </div>
+    </div>
+    <div class="card center" style="margin-top:20px;">
+      <h3>ひなこちゃん権利ページ</h3>
+      <img src="hinako_writing.png" alt="ひなこちゃんの権利について" class="pr-img">
+      <p>この画像は、ひなこちゃんの権利に関する紹介ページとして使用しています。</p>
+    </div>
+  </section>
+
+  <section id="riria-column">
+    <h2>りりあコラム</h2>
+    <div class="card center">
+      <img src="riria_column/riria_colam_top.png" alt="りりあコラム" class="pr-img">
+      <p>4つのコラム画像は切り替えて読めます。</p>
+    </div>
+    <div class="slide-viewer">
+      <div class="slides">
+        <img id="ririaSlide" src="riria_column/riria_may_1.png" alt="りりあコラム 1" class="wide-img">
+      </div>
+      <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
+        <button class="btn btn-secondary" type="button" onclick="changeRiriaSlide(-1)">前へ</button>
+        <button class="btn" type="button" onclick="changeRiriaSlide(1)">次へ</button>
+      </div>
+      <p class="center" id="ririaSlideLabel">1 / 4</p>
+    </div>
+  </section>
+
+  <section id="manga">
+    <h2>漫画</h2>
+    <div class="card center">
+      <p>今月の漫画は全5ページです。前後ボタンで順番に読めます。</p>
+    </div>
+    <div class="slide-viewer">
+      <div class="slides">
+        <img id="mangaSlide" src="riria_manga/riria_may_manga1.png" alt="漫画ページ 1" class="wide-img">
+      </div>
+      <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
+        <button class="btn btn-secondary" type="button" onclick="changeMangaSlide(-1)">前へ</button>
+        <button class="btn" type="button" onclick="changeMangaSlide(1)">次へ</button>
+      </div>
+      <p class="center" id="mangaSlideLabel">1 / 5</p>
+    </div>
+  </section>
+
+  <section id="illust">
+    <h2>りりあイラスト集のご案内</h2>
+    <div class="card center">
+      <img src="riria_illust.png" alt="りりあイラスト集" class="pr-img">
+      <p>1stイラスト集の案内ページです。</p>
+    </div>
+  </section>
+
+  <section id="himeji">
+    <h2>姫路コラム今月は誕生日specialやで！</h2>
+    <div class="card">
+      <div id="himejiContent" class="conversation"></div>
+    </div>
+  </section>
+
+  <section id="sref">
+    <h2>安藤家SREFコラム</h2>
+    <div class="card">
+      <div id="srefContent" class="conversation"></div>
+    </div>
+  </section>
+
+  <section id="glm">
+    <h2>GLM先生の提案箱</h2>
+    <div class="card">
+      <div id="glmContent"></div>
+    </div>
+  </section>
+
+  <section id="riria-gallery">
+    <h2>りりあギャラリー</h2>
+    <div class="gallery-grid">
+      <img src="riria_Gallery/001.png" alt="りりあギャラリー 001">
+      <img src="riria_Gallery/002.png" alt="りりあギャラリー 002">
+      <img src="riria_Gallery/003.png" alt="りりあギャラリー 003">
+      <img src="riria_Gallery/004.png" alt="りりあギャラリー 004">
+      <img src="riria_Gallery/005.png" alt="りりあギャラリー 005">
+    </div>
+  </section>
+
+  <section id="hinako-gallery">
+    <h2>ひなこギャラリー</h2>
+    <div class="gallery-grid">
+      <img src="hinako_Gallery/bd1.png" alt="ひなこギャラリー 1">
+      <img src="hinako_Gallery/bd2.png" alt="ひなこギャラリー 2">
+      <img src="hinako_Gallery/bd3.png" alt="ひなこギャラリー 3">
+    </div>
+  </section>
+
+  <section id="afterword">
+    <h2>あとがき</h2>
+    <div class="card">
+      <p>今月から冊子型から、いつでも読めるようにWebサイトで「月刊りりひな」の配信をしてみることにしました。これから少しずつブラッシュアップしていくので、ぜひ応援してくださいね。</p>
+      <p><strong>「月刊りりひな」編集長　天汐香弓</strong><br>発行日 2026年5月吉日<br>連絡先：<a href="https://x.com/teshio_k" target="_blank" rel="noopener">https://x.com/teshio_k</a></p>
+    </div>
+  </section>
+
+  <div class="footer">
+    <p>© 2026 月刊りりひな編集部</p>
+  </div>
+</div>
+
+<script>
+  const ririaSlides = [
+    "riria_column/riria_may_1.png",
+    "riria_column/riria_may_2.png",
+    "riria_column/riria_may_3.png",
+    "riria_column/riria_may_4.png"
+  ];
+  let ririaIndex = 0;
+  function updateRiriaSlide() {
+    document.getElementById("ririaSlide").src = ririaSlides[ririaIndex];
+    document.getElementById("ririaSlideLabel").textContent = `${ririaIndex + 1} / ${ririaSlides.length}`;
+  }
+  function changeRiriaSlide(step) {
+    ririaIndex = (ririaIndex + step + ririaSlides.length) % ririaSlides.length;
+    updateRiriaSlide();
+  }
+
+  const mangaSlides = [
+    "riria_manga/riria_may_manga1.png",
+    "riria_manga/riria_may_manga2.png",
+    "riria_manga/riria_may_manga3.png",
+    "riria_manga/riria_may_manga4.png",
+    "riria_manga/riria_may_manga5.png"
+  ];
+  let mangaIndex = 0;
+  function updateMangaSlide() {
+    const img = document.getElementById("mangaSlide");
+    img.src = mangaSlides[mangaIndex];
+    img.alt = `漫画ページ ${mangaIndex + 1}`;
+    document.getElementById("mangaSlideLabel").textContent = `${mangaIndex + 1} / ${mangaSlides.length}`;
+  }
+  function changeMangaSlide(step) {
+    mangaIndex = (mangaIndex + step + mangaSlides.length) % mangaSlides.length;
+    updateMangaSlide();
+  }
+
+  const iconMap = {
+    hinako: "../../assets/images/andou/hinako.png",
+    mother: "../../assets/images/andou/haha.png",
+    white_snake: "../../assets/images/andou/shirohebi.png",
+    white_snake_child: "../../assets/images/andou/shirohebi_ko.png",
+    father: "../../assets/images/andou/chichi.png"
+  };
+
+  function createChatLine(line, folder) {
+    if (line.type === "narration" || line.type === "announcement") {
+      return `<div class="chat-row announcement"><div class="bubble">${line.text}</div></div>`;
+    }
+    if (line.type === "info") {
+      return `<div class="info-box"><strong>${line.title}</strong><br>${line.address}<br>tel: ${line.tel}<br><a href="${line.url}" target="_blank" rel="noopener">${line.url}</a></div>`;
+    }
+    if (line.type === "images") {
+      return `<div class="image-grid">${line.srcs.map(src => `<img src="${folder}/${src}" alt="${src}">`).join("")}</div>`;
+    }
+    if (!line.char) return "";
+    const icon = iconMap[line.char] || "../../assets/images/andou/hinako.png";
+    return `<div class="chat-row"><img src="${icon}" class="icon" alt="${line.name}"><div class="bubble"><strong>${line.name}</strong><br>${line.text}</div></div>`;
+  }
+
+  function renderHimeji() {
+    fetch("himeji_column.json")
+      .then(resp => resp.json())
+      .then(data => {
+        let html = `<img src="himeji/himeji/himeji_title.png" alt="タイトル" class="wide-img" style="width:100%; max-width:600px; height:auto; display:block; margin:0 auto 16px;">`;
+        if (Array.isArray(data)) {
+          data.forEach(line => {
+            if (line.type === "title_img") {
+              // スキップ（JSONに含まれてるが既に表示済み）
+            } else {
+              html += createChatLine(line, "himeji/himeji");
+            }
+          });
+        }
+        document.getElementById("himejiContent").innerHTML = html || "<p>データがありません</p>";
+      })
+      .catch(err => {
+        console.error("姫路コラムの読み込みエラー:", err);
+        document.getElementById("himejiContent").innerHTML = `<p>姫路コラムの読み込みに失敗しました。<br>エラー: ${err.message}</p>`;
+      });
+  }
+
+  function renderSREF() {
+    fetch("sref_column.json")
+      .then(resp => resp.json())
+      .then(data => {
+        let html = `<img src="SREF/sref_title.png" alt="タイトル" class="wide-img" style="width:100%; max-width:600px; height:auto; display:block; margin:0 auto 16px;">`;
+        if (data.content && Array.isArray(data.content)) {
+          data.content.forEach(line => {
+            if (line.type === "images") {
+              html += `<div class="image-grid">${line.srcs.map(src => `<img src="SREF/${src}" alt="${src}">`).join("")}</div>`;
+            } else {
+              html += createChatLine(line, "SREF");
+            }
+          });
+        }
+        html += "</div>";
+        document.getElementById("srefContent").innerHTML = html;
+      })
+      .catch(err => {
+        console.error("SREFコラムの読み込みエラー:", err);
+        document.getElementById("srefContent").innerHTML = `<p>SREFコラムの読み込みに失敗しました。<br>エラー: ${err.message}</p>`;
+      });
+  }
+
+  function renderGLM() {
+    fetch("glm_column.json")
+      .then(resp => resp.json())
+      .then(data => {
+        let html = `<img src="GLM/glm_title.png" alt="タイトル" class="wide-img" style="width:100%; max-width:600px; height:auto; display:block; margin:0 auto 16px;">`;
+        if (data.intro && Array.isArray(data.intro)) {
+          data.intro.forEach(line => {
+            html += createChatLine(line, "GLM");
+          });
+        }
+        html += "</div>";
+        if (data.disclaimer) {
+          html += `<div class="info-box">${data.disclaimer}</div>`;
+        }
+        if (data.prompts && Array.isArray(data.prompts)) {
+          html += data.prompts.map(prompt => {
+            const thumbs = prompt.images.slice(0, 6).map(name => `<img src="GLM/${name}" alt="${name}">`).join("");
+            return `<div class="card" style="margin-top:16px;"><strong>Prompt ${prompt.id}</strong><p>${prompt.text}</p><div class="image-grid">${thumbs}</div></div>`;
+          }).join("");
+        }
+        document.getElementById("glmContent").innerHTML = html;
+      })
+      .catch(err => {
+        console.error("GLMコラムの読み込みエラー:", err);
+        document.getElementById("glmContent").innerHTML = `<p>GLM提案箱の読み込みに失敗しました。<br>エラー: ${err.message}</p>`;
+      });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    updateRiriaSlide();
+    updateMangaSlide();
+    renderHimeji();
+    renderSREF();
+    renderGLM();
+  });
+</script>
+</body>
+</html>

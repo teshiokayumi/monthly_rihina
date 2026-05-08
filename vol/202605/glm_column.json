@@ -1,0 +1,46 @@
+{
+  "title": "GLM先生の提案箱",
+  "intro": [
+    { "char": "hinako", "name": "ひなこ", "text": "おかぁさぁん！今月のテーマは何！？" },
+    { "char": "mother", "name": "母", "text": "5月3日はみどりの日…初夏…初夏のグリーン系ファッション、かなあ！" }
+  ],
+  "disclaimer": "※本コーナー名「GLM先生の提案箱」はお母さん（ひなこの母（術師）アミカ）が便宜上付けた呼称です。Z.ai／GLMの公式企画・公式配布物ではなく、提携・推奨・保証を示すものではありません。また画像がすべて表示されるまで、少しお時間がかかることがあります。",
+  "prompts": [
+    {
+      "id": 1,
+      "text": "dressed in a sage green sailor-style top with white trim, mint green high-waisted shorts, white ankle socks, brown suede loafers",
+      "images": [
+        "glm_flux_202604_1.jpg", "glm_gpt_anime_202604_1.png", "glm_gpt_photo_202604_1.png",
+        "glm_grok_anime_202604_1.jpg", "glm_grok_photo_202604_1.jpg", "glm_seadream_202604_1.png",
+        "glm_wan_202604_1.jpg", "glm202604_1_1_hinako1.png", "glm202604_1_2_hinako1.png"
+      ]
+    },
+    {
+      "id": 2,
+      "text": "wearing olive green Henley shirt, sage green jogger-style trousers, white canvas sneakers",
+      "images": [
+        "glm_flux_202604_2.jpg", "glm_gpt_anime_202604_2.png", "glm_gpt_photo_202604_2.png",
+        "glm_grok_anime_202604_2.jpg", "glm_grok_photo_202604_2.jpg", "glm_seadream_202604_2.png",
+        "glm_wan_202604_2.jpg", "glm202604_2_1_hinako1.png", "glm202604_2_2_hinako1.png"
+      ]
+    },
+    {
+      "id": 3,
+      "text": "dressed in mint green ruffle front blouse, white wide-leg cropped trousers, brown leather slide sandals",
+      "images": [
+        "glm_flux_202604_3.jpg", "glm_gpt_anime_202604_3.png", "glm_gpt_photo_202604_3.png",
+        "glm_grok_anime_202604_3.jpg", "glm_grok_photo_202604_3.jpg", "glm_seadream_202604_3.png",
+        "glm_wan_202604_3.jpg", "glm202604_3_1_hinako1.png", "glm202604_3_2_hinako1.png"
+      ]
+    },
+    {
+      "id": 4,
+      "text": "in forest green peasant blouse with embroidery, cream tiered skirt, brown leather sandals",
+      "images": [
+        "glm_flux_202604_4.jpg", "glm_gpt_anime_202604_4.png", "glm_gpt_photo_202604_4.png",
+        "glm_grok_anime_202604_4.jpg", "glm_grok_photo_202604_4.jpg", "glm_seadream_202604_4.png",
+        "glm_wan_202604_4.jpg", "glm202604_4_1_hinako1.png", "glm202604_4_2_hinako1.png"
+      ]
+    }
+  ]
+}
