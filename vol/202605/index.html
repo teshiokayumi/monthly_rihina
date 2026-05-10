@@ -472,7 +472,7 @@
         }
         if (data.prompts && Array.isArray(data.prompts)) {
           html += data.prompts.map(prompt => {
-            const thumbs = prompt.images.slice(0, 6).map(name => `<img src="GLM/${name}" alt="${name}">`).join("");
+            const thumbs = prompt.images.map(name => `<img src="GLM/${name}" alt="${name}">`).join("");
             return `<div class="card" style="margin-top:16px;"><strong>Prompt ${prompt.id}</strong><p>${prompt.text}</p><div class="image-grid">${thumbs}</div></div>`;
           }).join("");
         }
