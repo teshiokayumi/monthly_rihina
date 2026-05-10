@@ -42,7 +42,24 @@
   { "type": "images", "srcs": ["Illuminated_Himeji_Castle1.png", "pair_Illuminated_Himeji_Castle1.png"] },
   { "char": "hinako", "name": "ひなこ", "text": "食後には大手前通りから、姫路城ライトアップを見てきたでぇ！" },
   { "type": "images", "srcs": ["Illuminated_Himeji_Castle2.png", "pair_Illuminated_Himeji_Castle2.png"] },
-  { "char": "hinako", "name": "ひなこ", "text": "5月の特別演出プログラムは姫路城のホームページから確認してな♪" },
-  { "type": "narration", "text": "今年も姫路で最高のお誕生日を過ごすことができてほんまに幸せやったぁ★" },
-  { "char": "white_snake", "name": "白蛇", "text": "キナガニミマモッテヤッテクダサイ★" }
+  { 
+    "char": "hinako", 
+    "name": "ひなこ", 
+    "text": "5月の特別演出プログラムは<a href=\"https://www.city.himeji.lg.jp/castle/0000033260.html\" target=\"_blank\">姫路城のホームページ</a>から確認してな♪" 
+  },
+  { 
+    "char": "hinako", 
+    "name": "ひなこ", 
+    "text": "今年も姫路で最高のお誕生日を過ごすことができてほんまに幸せやったぁ★ これからも私らしく、マイペースでぶっ飛ばしていくでぇ！" 
+  },
+  { 
+    "char": "white_snake", 
+    "name": "白蛇", 
+    "text": "キナガニミマモッテヤッテクダサイ★" 
+  },
+  { 
+    "char": "hinako", 
+    "name": "ひなこ", 
+    "text": "【おまけ★動画のコーナー】 最近登場しためちゃすご動画生成AI！Seedance 2.0とHappy Horse 1.0で楽しかった誕生日会動画を作ってみたでぇ！<br><a href=\"https://youtu.be/vyj_bSOgij0\" target=\"_blank\">１つめ</a><br><a href=\"https://youtube.com/shorts/quVQRyDmCCs\" target=\"_blank\">２つめ</a>" 
+  }
 ]
